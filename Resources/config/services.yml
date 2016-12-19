@@ -1,0 +1,14 @@
+parameters:
+    smile.cron.bar.class: Smile\EzUICronBundle\Command\BarCommand
+    smile.cron.foo.class: Smile\EzUICronBundle\Command\FooCommand
+
+services:
+    smile.cron.bar:
+        class: %smile.cron.bar.class%
+        tags:
+            - { name: smile.cron, alias: bar, priority: 100 }
+
+    smileez.cron.foo:
+        class: %smile.cron.foo.class%
+        tags:
+            - { name: smile.cron, alias: foo, priority: 200, arguments: 'foo:fooarg' }

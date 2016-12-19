@@ -1,0 +1,6 @@
+system:
+    default:
+        css:
+            files:
+                - %smile_ez_uicron.css_dir%/views/uicron.css
+                - %smile_ez_uicron.css_dir%/platform.css

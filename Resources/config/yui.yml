@@ -1,0 +1,20 @@
+system:
+    default:
+        yui:
+            modules:
+                smileez-uicron-applugin:
+                    requires: ['ez-pluginregistry', 'plugin', 'base', 'smileez-uicron-view', 'smileez-uicron-viewservice']
+                    dependencyOf: ['ez-platformuiapp']
+                    path: %smile_ez_uicron.public_dir%/js/apps/plugins/smileez-uicron-appplugin.js
+                smileez-uicron-navigationplugin:
+                    requires: ['ez-pluginregistry', 'ez-viewservicebaseplugin', 'ez-navigationitemview']
+                    dependencyOf: ['ez-navigationhubviewservice']
+                    path: %smile_ez_uicron.public_dir%/js/views/services/plugins/smileez-uicron-navigationplugin.js
+                smileez-uicron-viewservice:
+                    requires: ['ez-serversideviewservice']
+                    path: %smile_ez_uicron.public_dir%/js/views/services/smileez-uicron-viewservice.js
+                smileez-uicron-view:
+                    requires: ['ez-serversideview']
+                    path: %smile_ez_uicron.public_dir%/js/views/smileez-uicron-view.js
+
+
