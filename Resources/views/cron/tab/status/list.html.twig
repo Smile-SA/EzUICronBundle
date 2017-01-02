@@ -1,0 +1,17 @@
+{% if not datas %}
+    <tr class="ez-block-row">
+        <td class="ez-block-cell ez-block-cell-no-result" colspan="5">
+            {{ 'smileezcron.status.nodata'|trans }}
+        </td>
+    </tr>
+{% else %}
+    {% for data in datas %}
+        <tr class="ez-block-row">
+            <td class="ez-block-cell">{{ data.alias }}</td>
+            <td class="ez-block-cell">{{ data.queued }}</td>
+            <td class="ez-block-cell">{{ data.started }}</td>
+            <td class="ez-block-cell">{{ data.ended }}</td>
+            <td class="ez-block-cell">{{ data.status }}</td>
+        </tr>
+    {% endfor %}
+{% endif %}

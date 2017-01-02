@@ -11,7 +11,7 @@ YUI.add('smileez-uicron-navigationplugin', function (Y) {
                     title: Y.eZ.trans('smileezuicron.navigationhub.cron.title', {}, 'smileeznavigationhub'),
                     identifier: "smileez-uicron-cron",
                     route: {
-                        name: "smileEzUICron"
+                        name: "smileezuiCronNavigation"
                     }
                 }
             }, 'admin');

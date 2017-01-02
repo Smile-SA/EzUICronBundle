@@ -1,0 +1,5 @@
+smileezcron_cron:
+    path:     /cron/{tabItem}
+    defaults: { _controller: smile.cron.controller.cron:cronAction, tabItem: "status" }
+    requirements:
+            tabItem: "[a-z]+"

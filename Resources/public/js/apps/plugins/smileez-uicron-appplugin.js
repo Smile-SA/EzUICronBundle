@@ -11,7 +11,7 @@ YUI.add('smileez-uicron-applugin', function (Y) {
 
             app.route({
                 name: "smileezuiCronNavigation",
-                path: "/smileezsb/sb",
+                path: "/cron",
                 view: "smileezuicronView",
                 service: Y.smileEzUICron.ViewService,
                 sideViews: {'navigationHub': true, 'discoveryBar': false},

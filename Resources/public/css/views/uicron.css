@@ -1,0 +1,61 @@
+.ez-view-smileezuicronview {
+    background: #fff;
+    padding: 1em 2em;
+}
+
+.ez-view-smileezuicronview .ez-page-header {
+    padding: 0;
+}
+
+.ez-view-smileezuicronview .ez-platform-version {
+    margin-top: 0;
+}
+
+.ez-view-smileezuicronview {
+    background: #F5F4F2;
+}
+
+.ez-view-smileezuicronview .ez-platform-version {
+    font-size: 120%;
+}
+
+.ez-view-smileezuicronview .ez-tabs.ez-smileezuicron-content {
+    border: 0;
+}
+
+.ez-view-smileezuicron-table .ez-block-header {
+    background: #4a4a4a;
+    color: #fff;
+}
+
+.ez-view-smileezuicron-table .ez-block-items-table {
+    border-collapse: collapse;
+    border: 1px solid #d2d2d2;
+}
+
+.ez-view-smileezuicron-table [class*="ez-block-head-"] {
+    border: 1px solid #4a4a4a;
+    border-right: 1px solid #ddd;
+}
+
+.ez-view-smileezuicron-table [class*="ez-block-head-"] {
+    box-sizing: border-box;
+    padding: .5em;
+}
+
+.ez-view-smileezuicron-table .ez-block-cell {
+    padding: 0.5em 0.5em;
+    vertical-align: top;
+}
+
+.ez-view-smileezuicron-table .ez-block-cell ul {
+    padding: 0em 0.8em;
+    margin: 0em 0.1em;
+}
+
+.ez-view-smileezuicron-table .ez-block-cell-no-result {
+    font-style: italic;
+    text-align: center;
+}
+
+

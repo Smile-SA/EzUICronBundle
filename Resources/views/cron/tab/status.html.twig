@@ -1,0 +1,22 @@
+{% trans_default_domain "smileezcron_status" %}
+
+<div class="ez-view-smileezuicron-table">
+    <div class="ez-block-wrapper ez-font-icon">
+        <table class="ez-block-items-table">
+            <thead class="ez-block-header">
+            <tr>
+                <th class="ez-block-head-alias">{{ 'smileezcron.status.th.alias'|trans }}</th>
+                <th class="ez-block-head-queued">{{ 'smileezcron.status.th.queued'|trans }}</th>
+                <th class="ez-block-head-started">{{ 'smileezcron.status.th.started'|trans }}</th>
+                <th class="ez-block-head-ended">{{ 'smileezcron.status.th.ended'|trans }}</th>
+                <th class="ez-block-head-status">{{ 'smileezcron.status.th.status'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody class="ez-block-content">
+
+            {{ render( controller('smile.cron.controller.cron.status:listAction' ) ) }}
+
+            </tbody>
+        </table>
+    </div>
+</div>

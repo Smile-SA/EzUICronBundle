@@ -1,0 +1,47 @@
+{% extends "eZPlatformUIBundle::pjax_admin.html.twig" %}
+
+{% trans_default_domain "smileezcron" %}
+
+{% block title %}{{ 'Status'|trans }}{% endblock %}
+
+{% block header_title %}
+    <h1 class="smileezuicron-status-title">{{ 'Cron'|trans }}</h1>
+{% endblock %}
+
+{% block content %}
+    <section class="ez-tabs ez-smileezuicron-status-content">
+
+        <ul class="ez-tabs-list">
+            {% for tab_item in tab_items %}
+                <li class="ez-tabs-label{% if tab_item == tab_item_selected %} is-tab-selected{% endif %}"><a href="#ez-tabs-{{ tab_item }}">{{ tab_item|trans }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <div class="ez-tabs-panels">
+            {% for tab_item in tab_items %}
+                <div class="ez-tabs-panel{% if tab_item == tab_item_selected %} is-tab-selected{% endif %}" id="ez-tabs-{{ tab_item }}">
+                    <div class="ez-view-container pure-u yui3-app-views">
+                        <div class="ez-view-serversideview">
+                            <section class="ez-serverside-content">
+                                {{ render( controller(
+                                'smile.cron.controller.cron:tabAction', {
+                                    'tabItem': tab_item,
+                                    'paramsTwig': params,
+                                    'hasErrors': hasErrors
+                                } ) ) }}
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+{% endblock %}
+
+{% block notification %}
+    {% if hasErrors|length %}
+        <li data-state="error">{{ "form.validation_error"|trans(domain="general") }}</li>
+    {% endif %}
+    {{ parent() }}
+{% endblock %}
