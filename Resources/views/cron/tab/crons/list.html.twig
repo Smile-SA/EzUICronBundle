@@ -1,0 +1,18 @@
+{% if not datas %}
+    <tr class="ez-block-row">
+        <td class="ez-block-cell ez-block-cell-no-result" colspan="6">
+            {{ 'smileezcron.crons.nodata'|trans }}
+        </td>
+    </tr>
+{% else %}
+    {% for data in datas %}
+        <tr class="ez-block-row">
+            <td class="ez-block-cell">{{ data.alias }}</td>
+            <td class="ez-block-cell"></td>
+            <td class="ez-block-cell"></td>
+            <td class="ez-block-cell"></td>
+            <td class="ez-block-cell"></td>
+            <td class="ez-block-cell"></td>
+        </tr>
+    {% endfor %}
+{% endif %}

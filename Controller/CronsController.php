@@ -6,8 +6,12 @@ use EzSystems\PlatformUIBundle\Controller\Controller;
 
 class CronsController extends Controller
 {
-    public function indexAction($name)
+    public function listAction()
     {
-        return $this->render('', array('name' => $name));
+        $datas = array();
+
+        return $this->render('SmileEzUICronBundle:cron:tab/crons/list.html.twig', [
+            'datas' => $datas
+        ]);
     }
 }

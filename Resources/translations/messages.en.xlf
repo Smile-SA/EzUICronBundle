@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2017-01-02T16:44:45Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="07ec12f4689ee90ade282338b25b99b9677b0d08" resname="form.validation_error">
+        <source>form.validation_error</source>
+        <target>form.validation_error</target>
+        <note>key: form.validation_error</note>
+        <jms:reference-file line="44">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="70c4678bbd933b3e602d244bb0038de50325c641" resname="smileezcron.crons.nodata">
+        <source>smileezcron.crons.nodata</source>
+        <target state="new">No data</target>
+        <note>key: smileezcron.crons.nodata</note>
+        <jms:reference-file line="4">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/crons/list.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c86a144325087d77e2e4cd140dc601db3c00bce7" resname="smileezcron.status.nodata">
+        <source>No data</source>
+        <target>No data</target>
+        <note>key: smileezcron.status.nodata</note>
+        <jms:reference-file line="4">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/status/list.html.twig</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

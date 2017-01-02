@@ -6,11 +6,17 @@
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
-      <trans-unit id="bc27f1d6ef5455fdcba7d98f80638af6c952ea77" resname="smileezuicron.navigationhub.cron.title">
-        <source>smileezuicron.navigationhub.cron.title</source>
-        <target state="new">Tâches planifiées</target>
-        <note>key: smileezuicron.navigationhub.cron.title</note>
-        <jms:reference-file>./src/Smile/EzUICronBundle/Resources/public/js/views/services/plugins/smileez-uicron-navigationplugin.js</jms:reference-file>
+      <trans-unit id="7124cac63f51d9545888f40dec485ec7955afe58" resname="Cron">
+        <source>Cron</source>
+        <target state="new">Planificateur de tâches</target>
+        <note>key: Cron</note>
+        <jms:reference-file line="8">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bae7d5be70820ed56467bd9a63744e23b47bd711" resname="Status">
+        <source>Status</source>
+        <target state="new">Etat</target>
+        <note>key: Status</note>
+        <jms:reference-file line="5">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/index.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>

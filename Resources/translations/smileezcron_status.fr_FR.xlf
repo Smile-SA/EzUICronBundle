@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2017-01-02T16:02:00Z" source-language="en" target-language="fr_FR" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="84e22d062cfa119b75f954d073b4ac1ea7306562" resname="smileezcron.status.th.alias">
+        <source>smileezcron.status.th.alias</source>
+        <target state="new">Alias</target>
+        <note>key: smileezcron.status.th.alias</note>
+        <jms:reference-file line="8">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/status.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a1ba09bdaa2f9d23220ddac9bc6bfcc243928231" resname="smileezcron.status.th.ended">
+        <source>smileezcron.status.th.ended</source>
+        <target state="new">Terminé</target>
+        <note>key: smileezcron.status.th.ended</note>
+        <jms:reference-file line="11">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/status.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8369e37d69ac4c465b688ecd59b6b76707c05ef6" resname="smileezcron.status.th.queued">
+        <source>smileezcron.status.th.queued</source>
+        <target state="new">En file d'attente</target>
+        <note>key: smileezcron.status.th.queued</note>
+        <jms:reference-file line="9">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/status.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2633fc64acddd1c0aeeaa0955f525377f22fcb4a" resname="smileezcron.status.th.started">
+        <source>smileezcron.status.th.started</source>
+        <target state="new">Débuté</target>
+        <note>key: smileezcron.status.th.started</note>
+        <jms:reference-file line="10">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/status.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ae583a145ae6c26885485a47b6a6156beab2d212" resname="smileezcron.status.th.status">
+        <source>smileezcron.status.th.status</source>
+        <target state="new">Etat</target>
+        <note>key: smileezcron.status.th.status</note>
+        <jms:reference-file line="12">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/status.html.twig</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
