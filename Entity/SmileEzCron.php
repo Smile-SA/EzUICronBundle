@@ -40,14 +40,14 @@ class SmileEzCron
      *
      * @ORM\Column(name="priority", type="integer", nullable=false)
      */
-    private $priority;
+    private $priority = 100;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="enabled", type="integer", nullable=true)
+     * @ORM\Column(name="enabled", type="integer", nullable=false)
      */
-    private $enabled;
+    private $enabled = 1;
 
 
     /**
