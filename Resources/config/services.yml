@@ -2,6 +2,8 @@ parameters:
     smile.cron.bar.class: Smile\EzUICronBundle\Command\BarCommand
     smile.cron.foo.class: Smile\EzUICronBundle\Command\FooCommand
 
+    smile.ez.cron.service.class: Smile\EzUICronBundle\Service\EzCronService
+
     smile.cron.controller.cron.class: Smile\EzUICronBundle\Controller\CronController
     smile.cron.controller.cron.status.class: Smile\EzUICronBundle\Controller\StatusController
     smile.cron.controller.cron.crons.class: Smile\EzUICronBundle\Controller\CronsController
@@ -18,6 +20,13 @@ services:
         tags:
             - { name: smile.cron, alias: foo, priority: 200, arguments: 'foo:fooarg' }
 
+    # services
+    smile.ez.cron.service:
+        class: %smile.ez.cron.service.class%
+        arguments:
+            - @smile.cron.service
+            - @doctrine
+
     # controllers
     smile.cron.controller.cron:
         class: %smile.cron.controller.cron.class%
@@ -27,8 +36,12 @@ services:
 
     smile.cron.controller.cron.status:
         class: %smile.cron.controller.cron.status.class%
+        arguments:
+            - @smile.ez.cron.service
         parent: ezsystems.platformui.controller.base
 
     smile.cron.controller.cron.crons:
         class: %smile.cron.controller.cron.crons.class%
+        arguments:
+            - @smile.ez.cron.service
         parent: ezsystems.platformui.controller.base

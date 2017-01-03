@@ -1,5 +1,11 @@
 smileezcron_cron:
-    path:     /cron/{tabItem}
+    path: /cron/{tabItem}
     defaults: { _controller: smile.cron.controller.cron:cronAction, tabItem: "status" }
     requirements:
-            tabItem: "[a-z]+"
+        tabItem: "[a-z]+"
+
+smileezcron_cron_edit:
+    path: /cron/edit/{alias}
+    defaults: { _controller: smile.cron.controller.cron.crons:editAction }
+    requirements:
+        alias: "[a-z]+"

@@ -3,15 +3,30 @@
 namespace Smile\EzUICronBundle\Controller;
 
 use EzSystems\PlatformUIBundle\Controller\Controller;
+use Smile\CronBundle\Cron\CronInterface;
+use Smile\EzUICronBundle\Service\EzCronService;
 
 class CronsController extends Controller
 {
+    /** @var EzCronService $cronService cron service */
+    protected $cronService;
+
+    public function __construct(EzCronService $cronService)
+    {
+        $this->cronService = $cronService;
+    }
+
     public function listAction()
     {
-        $datas = array();
+        $crons = $this->cronService->getCrons();
 
         return $this->render('SmileEzUICronBundle:cron:tab/crons/list.html.twig', [
-            'datas' => $datas
+            'datas' => $crons
         ]);
+    }
+
+    public function editAction($alias)
+    {
+
     }
 }

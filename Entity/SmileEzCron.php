@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * SmileEzCron
  *
+ * @ORM\Entity(repositoryClass="Smile\EzUICronBundle\Repository\SmileEzCronRepository")
  * @ORM\Table(name="smile_ez_cron")
- * @ORM\Entity
  */
 class SmileEzCron
 {
