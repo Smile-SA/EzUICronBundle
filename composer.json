@@ -1,5 +1,6 @@
 {
   "name": "smile/ez-uicron-bundle",
+  "type": "ezplatform-bundle",
   "description": "Cron scheduler for eZ Platform 6.x",
   "license": ["MIT"],
   "authors": [
