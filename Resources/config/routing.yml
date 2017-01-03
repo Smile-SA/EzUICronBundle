@@ -1,11 +1,19 @@
+smileezcron_cron_edit:
+    path:     /cron/{alias}/edit
+    defaults: { _controller: "SmileEzUICronBundle:SmileEzCron:edit" }
+    requirements:
+        alias: "[a-z]+"
+
+smileezcron_cron_update:
+    path:     /cron/{alias}/update
+    defaults: { _controller: "SmileEzUICronBundle:SmileEzCron:update" }
+    methods:  [POST, PUT]
+    requirements:
+        alias: "[a-z]+"
+
 smileezcron_cron:
     path: /cron/{tabItem}
     defaults: { _controller: smile.cron.controller.cron:cronAction, tabItem: "status" }
     requirements:
         tabItem: "[a-z]+"
 
-smileezcron_cron_edit:
-    path: /cron/edit/{alias}
-    defaults: { _controller: smile.cron.controller.cron.crons:editAction }
-    requirements:
-        alias: "[a-z]+"

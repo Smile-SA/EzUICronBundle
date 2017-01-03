@@ -24,9 +24,4 @@ class CronsController extends Controller
             'datas' => $crons
         ]);
     }
-
-    public function editAction($alias)
-    {
-
-    }
 }

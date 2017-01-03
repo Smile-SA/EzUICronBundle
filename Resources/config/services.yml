@@ -25,6 +25,7 @@ services:
         class: %smile.ez.cron.service.class%
         arguments:
             - @smile.cron.service
+            - @smile.cron.handler
             - @doctrine
 
     # controllers
