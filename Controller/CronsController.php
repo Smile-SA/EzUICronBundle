@@ -3,7 +3,6 @@
 namespace Smile\EzUICronBundle\Controller;
 
 use EzSystems\PlatformUIBundle\Controller\Controller;
-use Smile\CronBundle\Cron\CronInterface;
 use Smile\EzUICronBundle\Service\EzCronService;
 
 class CronsController extends Controller

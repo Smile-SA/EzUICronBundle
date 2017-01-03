@@ -5,7 +5,7 @@ namespace Smile\EzUICronBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Smile\EzUICronBundle\Entity\SmileEzCron;
-use Smile\EzUICronBundle\Form\SmileEzCronType;
+use Smile\EzUICronBundle\Form\Type\SmileEzCronType;
 
 /**
  * SmileEzCron controller.
@@ -74,7 +74,7 @@ class SmileEzCronController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cron_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('smileezcron_cron_edit', array('alias' => $alias)));
         }
 
         return $this->render('SmileEzUICronBundle:SmileEzCron:edit.html.twig', array(

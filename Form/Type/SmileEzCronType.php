@@ -1,6 +1,6 @@
 <?php
 
-namespace Smile\EzUICronBundle\Form;
+namespace Smile\EzUICronBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
