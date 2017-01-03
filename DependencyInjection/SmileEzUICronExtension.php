@@ -81,7 +81,7 @@ class SmileEzUICronExtension extends Extension implements PrependExtensionInterf
     public function getTranslationDomains()
     {
         return [
-            'smileezcron'
+            'smileezcron', 'smileeznavigationhub'
         ];
     }
 }
