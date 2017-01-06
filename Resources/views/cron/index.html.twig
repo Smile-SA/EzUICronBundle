@@ -2,10 +2,18 @@
 
 {% trans_default_domain "smileezcron" %}
 
-{% block title %}{{ 'Status'|trans }}{% endblock %}
+{% block header_breadcrumbs %}
+    {% set breadcrumb_items = [
+        {link: path('admin_dashboard'), label: 'dashboard.title'|trans({}, 'dashboard')},
+        {link: null, label: 'Cron'|trans}
+    ] %}
+    {{ parent() }}
+{% endblock %}
 
 {% block header_title %}
-    <h1 class="smileezuicron-status-title">{{ 'Cron'|trans }}</h1>
+    <h1 class="smileezuicron-status-title" data-icon="&#xe622;">
+        {{ 'Cron'|trans }}
+    </h1>
 {% endblock %}
 
 {% block content %}

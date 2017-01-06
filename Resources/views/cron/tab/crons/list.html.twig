@@ -10,8 +10,12 @@
             <td class="ez-block-cell">{{ alias }}</td>
             <td class="ez-block-cell">{{ data.expression }}</td>
             <td class="ez-block-cell">{{ data.arguments }}</td>
-            <td class="ez-block-cell">{{ data.priority }}</td>
-            <td class="ez-block-cell">{{ data.enabled }}</td>
+            <td class="ez-block-cell-center">{{ data.priority }}</td>
+            <td class="ez-block-cell-center">
+                {% if data.enabled %}
+                    <span class="ez-contenttype-icon ez-contenttype-icon-chekmark"></span>
+                {% endif %}
+            </td>
             <td class="ez-block-cell">
                 <a href="{{ path('smileezcron_cron_edit', {'alias': alias}) }}" class="pure-button ez-button" data-icon="&#xe606;">{{ 'cron.edit'|trans }}</a>
             </td>

@@ -58,4 +58,11 @@
     text-align: center;
 }
 
+.ez-contenttype-icon-chekmark.ez-contenttype-icon:before {
+    content: "checkmark";
+}
+
+.ez-block-cell-center {
+    text-align: center;
+}
 

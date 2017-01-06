@@ -1,24 +1,24 @@
 {% trans_default_domain "smileezcron_crons" %}
 
-<div class="ez-view-smileezuicron-table">
-    <div class="ez-block-wrapper ez-font-icon">
-        <table class="ez-block-items-table">
-            <thead class="ez-block-header">
-            <tr>
-                <th class="ez-block-head-alias">{{ 'smileezcron.crons.th.alias'|trans }}</th>
-                <th class="ez-block-head-expression">{{ 'smileezcron.crons.th.expression'|trans }}</th>
-                <th class="ez-block-head-arguments">{{ 'smileezcron.crons.th.arguments'|trans }}</th>
-                <th class="ez-block-head-priority">{{ 'smileezcron.crons.th.priority'|trans }}</th>
-                <th class="ez-block-head-enabled">{{ 'smileezcron.crons.th.enabled'|trans }}</th>
-                <th class="ez-block-head-update"></th>
-            </tr>
-            </thead>
-            <tbody class="ez-block-content">
-
-            {{ render( controller('smile.cron.controller.cron.crons:listAction' ) ) }}
-
-            </tbody>
-        </table>
+<section class="ez-serverside-content">
+    <div class="ez-table-data is-flexible">
+        <div class="ez-table-data-container">
+            <table class="pure-table pure-table-striped ez-selection-table">
+                <thead>
+                <tr class="ez-selection-table-row">
+                    <th>{{ 'smileezcron.crons.th.alias'|trans }}</th>
+                    <th>{{ 'smileezcron.crons.th.expression'|trans }}</th>
+                    <th>{{ 'smileezcron.crons.th.arguments'|trans }}</th>
+                    <th>{{ 'smileezcron.crons.th.priority'|trans }}</th>
+                    <th>{{ 'smileezcron.crons.th.enabled'|trans }}</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{ render( controller('smile.cron.controller.cron.crons:listAction' ) ) }}
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+</section>
 
