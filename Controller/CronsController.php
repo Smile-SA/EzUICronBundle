@@ -2,6 +2,7 @@
 
 namespace Smile\EzUICronBundle\Controller;
 
+use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
 use EzSystems\PlatformUIBundle\Controller\Controller;
 use Smile\EzUICronBundle\Service\EzCronService;
 
@@ -13,6 +14,12 @@ class CronsController extends Controller
     public function __construct(EzCronService $cronService)
     {
         $this->cronService = $cronService;
+    }
+
+    public function performAccessChecks()
+    {
+        parent::performAccessChecks();
+        $this->denyAccessUnlessGranted(new Attribute('uicron', 'cron'));
     }
 
     public function listAction()
