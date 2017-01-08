@@ -8,16 +8,25 @@
     {% for alias, data in datas %}
         <tr class="ez-block-row">
             <td class="ez-block-cell">{{ alias }}</td>
-            <td class="ez-block-cell">{{ data.expression }}</td>
-            <td class="ez-block-cell">{{ data.arguments }}</td>
-            <td class="ez-block-cell-center">{{ data.priority }}</td>
-            <td class="ez-block-cell-center">
+            <td class="ez-block-cell smile-cron-edit" data-type="expression" data-alias="{{ alias }}" id="smile-cron-td-expression-{{ alias }}">
+                <span class="smile-cron-value" data-type="expression" data-alias="{{ alias }}" id="smile-cron-value-expression-{{ alias }}">
+                    {{ data.expression }}
+                </span>
+            </td>
+            <td class="ez-block-cell smile-cron-edit" data-type="arguments" data-alias="{{ alias }}" id="smile-cron-td-arguments-{{ alias }}">
+                <span class="smile-cron-value" data-type="arguments" data-alias="{{ alias }}" id="smile-cron-value-arguments-{{ alias }}">
+                    {{ data.arguments }}
+                </span>
+            </td>
+            <td class="ez-block-cell smile-cron-edit" data-type="priority" data-alias="{{ alias }}" id="smile-cron-td-priority-{{ alias }}">
+                <span class="smile-cron-value" data-type="priority" data-alias="{{ alias }}" id="smile-cron-value-priority-{{ alias }}">
+                    {{ data.priority }}
+                </span>
+            </td>
+            <td class="ez-block-cell-center smile-cron-edit-boolean">
                 {% if data.enabled %}
                     <span class="ez-contenttype-icon ez-contenttype-icon-chekmark"></span>
                 {% endif %}
-            </td>
-            <td class="ez-block-cell">
-                <a href="{{ path('smileezcron_cron_edit', {'alias': alias}) }}" class="pure-button ez-button" data-icon="&#xe606;">{{ 'cron.edit'|trans }}</a>
             </td>
         </tr>
     {% endfor %}

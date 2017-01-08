@@ -12,7 +12,7 @@ YUI.add('smileez-uicron-viewservice', function (Y) {
         },
 
         _load: function (callback) {
-            uri = this.get('app').get('apiRoot') + 'cron';
+            uri = this.get('app').get('apiRoot') + 'cron/status/tab';
 
             Y.io(uri, {
                 method: 'GET',

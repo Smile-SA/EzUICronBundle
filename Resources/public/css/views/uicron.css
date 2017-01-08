@@ -66,3 +66,12 @@
     text-align: center;
 }
 
+.pure-table-striped tr td.smile-cron-edit:hover {
+    background: lightgrey;
+}
+
+.smile-cron-value.editView {
+    display:none;
+}
+
+
