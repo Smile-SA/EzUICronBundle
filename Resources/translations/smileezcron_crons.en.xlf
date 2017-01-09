@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-01-02T16:44:45Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2017-01-09T08:37:46Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
       <trans-unit id="62cda10792ec805aa1a212a4341c90a533c3fa96" resname="smileezcron.crons.th.alias">
-        <source>smileezcron.crons.th.alias</source>
-        <target state="new">Alias</target>
+        <source>Alias</source>
+        <target>Alias</target>
         <note>key: smileezcron.crons.th.alias</note>
-        <jms:reference-file line="8">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/crons.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="22869fe7f7905ffe57a08a14cc5384ac25c65e26" resname="smileezcron.crons.th.arguments">
-        <source>smileezcron.crons.th.arguments</source>
-        <target state="new">Arguments</target>
-        <note>key: smileezcron.crons.th.arguments</note>
-        <jms:reference-file line="10">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/crons.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="29caf1e962b9f87d191d4bfcb153c75ab954795c" resname="smileezcron.crons.th.enabled">
-        <source>smileezcron.crons.th.enabled</source>
-        <target state="new">Enabled</target>
-        <note>key: smileezcron.crons.th.enabled</note>
-        <jms:reference-file line="12">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/crons.html.twig</jms:reference-file>
-      </trans-unit>
-      <trans-unit id="ea0358588fc9d4497423579205e0e4916450108a" resname="smileezcron.crons.th.expression">
-        <source>smileezcron.crons.th.expression</source>
-        <target state="new">Expression</target>
-        <note>key: smileezcron.crons.th.expression</note>
         <jms:reference-file line="9">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/crons.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="9ba7fa2c26722b79b335c2e78399ec8f9b4a7bfe" resname="smileezcron.crons.th.priority">
-        <source>smileezcron.crons.th.priority</source>
-        <target state="new">Priority</target>
-        <note>key: smileezcron.crons.th.priority</note>
+      <trans-unit id="22869fe7f7905ffe57a08a14cc5384ac25c65e26" resname="smileezcron.crons.th.arguments">
+        <source>Arguments</source>
+        <target>Arguments</target>
+        <note>key: smileezcron.crons.th.arguments</note>
         <jms:reference-file line="11">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/crons.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="29caf1e962b9f87d191d4bfcb153c75ab954795c" resname="smileezcron.crons.th.enabled">
+        <source>Enabled</source>
+        <target>Enabled</target>
+        <note>key: smileezcron.crons.th.enabled</note>
+        <jms:reference-file line="13">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/crons.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ea0358588fc9d4497423579205e0e4916450108a" resname="smileezcron.crons.th.expression">
+        <source>Expression</source>
+        <target>Expression</target>
+        <note>key: smileezcron.crons.th.expression</note>
+        <jms:reference-file line="10">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/crons.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9ba7fa2c26722b79b335c2e78399ec8f9b4a7bfe" resname="smileezcron.crons.th.priority">
+        <source>Priority</source>
+        <target>Priority</target>
+        <note>key: smileezcron.crons.th.priority</note>
+        <jms:reference-file line="12">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/tab/crons.html.twig</jms:reference-file>
       </trans-unit>
     </body>
   </file>
