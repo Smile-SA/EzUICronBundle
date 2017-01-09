@@ -5,6 +5,7 @@ namespace Smile\EzUICronBundle\Controller;
 use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
 use EzSystems\PlatformUIBundle\Controller\Controller;
 use Smile\EzUICronBundle\Service\EzCronService;
+use Symfony\Component\HttpFoundation\Request;
 
 class CronsController extends Controller
 {
@@ -29,5 +30,10 @@ class CronsController extends Controller
         return $this->render('SmileEzUICronBundle:cron:tab/crons/list.html.twig', [
             'datas' => $crons
         ]);
+    }
+
+    public function editAction(Request $request)
+    {
+
     }
 }

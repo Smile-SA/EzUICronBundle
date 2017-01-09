@@ -4,3 +4,7 @@ smileezcron_cron:
     requirements:
         tabItem: "[a-z]+"
 
+smileezcron_cron_edit:
+    path: /cron/edit
+    methods: 'POST'
+    defaults: { _controller: smile.cron.controller.cron.crons:editAction }

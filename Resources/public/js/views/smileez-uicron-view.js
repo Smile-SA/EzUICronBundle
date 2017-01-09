@@ -1,6 +1,7 @@
 YUI.add('smileez-uicron-view', function (Y) {
     Y.namespace('smileEzUICron');
-    var onEdit = false;
+    var onEdit = false,
+        DEFAULT_HEADERS = {'X-PJAX': 'true'};;
 
     Y.smileEzUICron.View = Y.Base.create('smileezuicronView', Y.eZ.ServerSideView, [], {
         events: {
@@ -87,8 +88,27 @@ YUI.add('smileez-uicron-view', function (Y) {
                 cronValueNode.setHTML(inputValue);
                 cronValueNode.removeClass('editView');
                 cronTdNode.removeChild(cronContainerNode);
+
+                this._saveCronData(inputValue, type, alias);
                 onEdit = false;
             }
         },
+
+        _saveCronData: function(value, type, alias) {
+            var data = {
+                'type': type, 'alias': alias, 'value': value
+            };
+
+            Y.io('/cron/edit', {
+                method: 'POST',
+                headers: DEFAULT_HEADERS,
+                data: data,
+                on: {
+                    success: console.log('OK'),
+                    failure: console.log('nOK')
+                },
+                context: this,
+            });
+        }
     });
 });
