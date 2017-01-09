@@ -19,8 +19,22 @@ YUI.add('smileez-uicron-view', function (Y) {
             e.preventDefault();
             var type = e.target.getAttribute('data-type'),
                 alias = e.target.getAttribute('data-alias'),
-                cronValueNode = this.get('container').one('#smile-cron-value-' + type + '-' + alias),
-                cronTdNode = this.get('container').one('#smile-cron-td-' + type + '-' + alias);
+                container = this.get('container'),
+                cronValueNode = container.one('#smile-cron-value-' + type + '-' + alias),
+                cronTdNode = container.one('#smile-cron-td-' + type + '-' + alias),
+                cronAllTdNodes = container.all('.smile-cron-edit');
+
+            cronAllTdNodes.each(function(tdNode) {
+                var tdType = tdNode.getAttribute('data-type'),
+                    tdAlias = tdNode.getAttribute('data-alias'),
+                    cronContainerNode = container.one('#smile-cron-container-' + tdType + '-' + tdAlias),
+                    cronValueNode = container.one('#smile-cron-value-' + tdType + '-' + tdAlias);
+                
+                if (cronContainerNode) {
+                    cronValueNode.removeClass('editView');
+                    tdNode.removeChild(cronContainerNode);
+                }
+            });
 
             if (cronTdNode) {
                 cronTdNode.appendChild(Y.Node.create('<div id="smile-cron-container-' + type + '-' + alias + '"></div>'));
