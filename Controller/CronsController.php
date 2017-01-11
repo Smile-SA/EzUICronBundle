@@ -2,10 +2,12 @@
 
 namespace Smile\EzUICronBundle\Controller;
 
+use eZ\Publish\Core\Base\Exceptions\NotFoundException;
 use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
 use EzSystems\PlatformUIBundle\Controller\Controller;
 use Smile\EzUICronBundle\Service\EzCronService;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CronsController extends Controller
 {
@@ -32,8 +34,19 @@ class CronsController extends Controller
         ]);
     }
 
-    public function editAction(Request $request)
+    public function editAction(Request $request, $type, $alias)
     {
+        $value = $request->get('value');
 
+        $response = new Response();
+
+        try {
+            $this->cronService->updateCron($alias, $type, $value);
+            $response->setStatusCode(200);
+        } catch (NotFoundException $e) {
+            $response->setStatusCode(500);
+        }
+
+        return $response;
     }
 }

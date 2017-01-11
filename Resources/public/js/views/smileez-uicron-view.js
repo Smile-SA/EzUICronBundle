@@ -96,10 +96,10 @@ YUI.add('smileez-uicron-view', function (Y) {
 
         _saveCronData: function(value, type, alias) {
             var data = {
-                'type': type, 'alias': alias, 'value': value
+                'value': value
             };
 
-            Y.io('/cron/edit', {
+            Y.io('/cron/edit/' + type  + '/' + alias, {
                 method: 'POST',
                 headers: DEFAULT_HEADERS,
                 data: data,

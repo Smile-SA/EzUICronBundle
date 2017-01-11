@@ -17,7 +17,6 @@ class SmileEzCron
      *
      * @ORM\Column(name="alias", type="string", length=255, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $alias;
 
@@ -58,6 +57,19 @@ class SmileEzCron
     public function getAlias()
     {
         return $this->alias;
+    }
+
+    /**
+     * Set alias
+     *
+     * @param string $alias
+     * @return string
+     */
+    public function setAlias($alias)
+    {
+        $this->alias = $alias;
+
+        return $this;
     }
 
     /**

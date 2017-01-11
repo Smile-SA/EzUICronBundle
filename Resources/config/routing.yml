@@ -5,6 +5,9 @@ smileezcron_cron:
         tabItem: "[a-z]+"
 
 smileezcron_cron_edit:
-    path: /cron/edit
+    path: /cron/edit/{type}/{alias}
     methods: 'POST'
     defaults: { _controller: smile.cron.controller.cron.crons:editAction }
+    requirements:
+        type: "[a-z]+"
+        alias: "[a-z]+"

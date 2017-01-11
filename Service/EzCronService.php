@@ -3,6 +3,7 @@
 namespace Smile\EzUICronBundle\Service;
 
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use eZ\Publish\Core\Base\Exceptions\NotFoundException;
 use Smile\CronBundle\Cron\CronHandler;
 use Smile\CronBundle\Cron\CronInterface;
 use Smile\CronBundle\Entity\SmileCron;
@@ -39,6 +40,26 @@ class EzCronService
     public function listCronsStatus()
     {
         return $this->cronService->listCronsStatus();
+    }
+
+    public function updateCron($alias, $type, $value)
+    {
+        $cron = $this->repository->find($alias);
+
+        if (!$cron) {
+            $crons = $this->getCrons();
+            if (!isset($crons[$alias]))
+                throw new NotFoundException('cron alias not found', 'smileezcron');
+
+            $cron = new SmileEzCron();
+            $cron->setAlias($crons[$alias]['alias']);
+            $cron->setExpression($crons[$alias]['expression']);
+            $cron->setArguments($crons[$alias]['arguments']);
+            $cron->setPriority($crons[$alias]['priority']);
+            $cron->setEnabled($crons[$alias]['enabled']);
+
+            $this->repository->updateCron($cron, $type, $value);
+        }
     }
 
     /**
