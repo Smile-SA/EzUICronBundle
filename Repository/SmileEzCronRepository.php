@@ -33,7 +33,7 @@ class SmileEzCronRepository extends EntityRepository
                 $cron->setExpression($value);
                 break;
             case 'arguments':
-                if (preg_match_all('|[a-z]+:[a-z]+|', $value) === 0) {
+                if (preg_match_all('|[a-z0-9_\-]+:[a-z0-9_\-]+|', $value) === 0) {
                     throw new InvalidArgumentException('priority', 'Invalid cron arguments');
                 }
                 $cron->setArguments($value);

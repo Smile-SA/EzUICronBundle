@@ -85,30 +85,59 @@ YUI.add('smileez-uicron-view', function (Y) {
             if (cronTdNode && cronInput) {
                 var inputValue = cronInput.get('value');
 
-                cronValueNode.setHTML(inputValue);
+                var success = this._saveCronData(inputValue, type, alias, cronValueNode);
+
                 cronValueNode.removeClass('editView');
                 cronTdNode.removeChild(cronContainerNode);
 
-                this._saveCronData(inputValue, type, alias);
+
                 onEdit = false;
             }
         },
 
-        _saveCronData: function(value, type, alias) {
+        _saveCronData: function(value, type, alias, cronValueNode) {
             var data = {
                 'value': value
             };
+
+            var notificationText = '',
+                notificationIdentifier = 'cron-edit-' + type + '-' + alias,
+                notificationState = 'error',
+                notificationTimeout = 0,
+                success = false;
 
             Y.io('/cron/edit/' + type  + '/' + alias, {
                 method: 'POST',
                 headers: DEFAULT_HEADERS,
                 data: data,
                 on: {
-                    success: console.log('OK'),
-                    failure: console.log('nOK')
+                    success: function (tId, response) {
+                        cronValueNode.setHTML(value);
+                        notificationText = response.statusText;
+                        notificationIdentifier = notificationIdentifier + '-ok';
+                        notificationState = 'done';
+                        notificationTimeout = 5;
+                        this._notify(notificationText, notificationIdentifier, notificationState, notificationTimeout);
+                    },
+                    failure: function (tId, response) {
+                        notificationText = response.statusText;
+                        notificationIdentifier = notificationIdentifier + '-error';
+                        this._notify(notificationText, notificationIdentifier, notificationState, notificationTimeout);
+                    }
                 },
-                context: this,
+                context: this
             });
-        }
+        },
+
+        _notify: function (text, identifier, state, timeout) {
+            this.fire('notify', {
+                notification: {
+                    text: text,
+                    identifier: identifier,
+                    state: state,
+                    timeout: timeout,
+                }
+            });
+        },
     });
 });

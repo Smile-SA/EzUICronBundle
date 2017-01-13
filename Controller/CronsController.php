@@ -45,9 +45,9 @@ class CronsController extends Controller
             $this->cronService->updateCron($alias, $type, $value);
             $response->setStatusCode(200);
         } catch (NotFoundException $e) {
-            $response->setStatusCode(500);
+            $response->setStatusCode(500, $e->getMessage());
         } catch (InvalidArgumentException $e) {
-            $response->setStatusCode(500);
+            $response->setStatusCode(500, $e->getMessage());
         }
 
         return $response;
