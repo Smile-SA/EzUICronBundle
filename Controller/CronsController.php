@@ -2,6 +2,7 @@
 
 namespace Smile\EzUICronBundle\Controller;
 
+use eZ\Publish\API\Repository\Exceptions\InvalidArgumentException;
 use eZ\Publish\Core\Base\Exceptions\NotFoundException;
 use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
 use EzSystems\PlatformUIBundle\Controller\Controller;
@@ -44,6 +45,8 @@ class CronsController extends Controller
             $this->cronService->updateCron($alias, $type, $value);
             $response->setStatusCode(200);
         } catch (NotFoundException $e) {
+            $response->setStatusCode(500);
+        } catch (InvalidArgumentException $e) {
             $response->setStatusCode(500);
         }
 

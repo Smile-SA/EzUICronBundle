@@ -57,9 +57,9 @@ class EzCronService
             $cron->setArguments($crons[$alias]['arguments']);
             $cron->setPriority($crons[$alias]['priority']);
             $cron->setEnabled($crons[$alias]['enabled']);
-
-            $this->repository->updateCron($cron, $type, $value);
         }
+
+        $this->repository->updateCron($cron, $type, $value);
     }
 
     /**
