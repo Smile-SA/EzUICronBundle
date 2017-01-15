@@ -23,6 +23,10 @@
     border: 0;
 }
 
+.ez-view-smileezuicron-table {
+    margin: 1em 0;
+}
+
 .ez-view-smileezuicron-table .ez-block-header {
     background: #4a4a4a;
     color: #fff;
