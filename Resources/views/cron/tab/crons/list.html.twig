@@ -24,9 +24,7 @@
                 </span>
             </td>
             <td class="ez-block-cell-center smile-cron-edit-boolean">
-                {% if data.enabled %}
-                    <span class="ez-contenttype-icon ez-contenttype-icon-chekmark"></span>
-                {% endif %}
+                <span class="{% if data.enabled %}ez-contenttype-icon ez-contenttype-icon-chekmark{% endif %}"></span>
             </td>
         </tr>
     {% endfor %}

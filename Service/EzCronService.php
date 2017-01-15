@@ -3,6 +3,7 @@
 namespace Smile\EzUICronBundle\Service;
 
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use eZ\Publish\Core\Base\Exceptions\NotFoundException;
 use Smile\CronBundle\Cron\CronHandler;
 use Smile\CronBundle\Cron\CronInterface;
@@ -71,7 +72,13 @@ class EzCronService
             $cron->setEnabled($crons[$alias]['enabled']);
         }
 
-        $this->repository->updateCron($cron, $type, $value);
+        try {
+            $this->repository->updateCron($cron, $type, $value);
+        } catch(InvalidArgumentException $e) {
+            throw new InvalidArgumentException(
+                $type, $this->translator->trans('cron.invalid.type', ['%type%' => $type], 'smileezcron')
+            );
+        }
     }
 
     /**

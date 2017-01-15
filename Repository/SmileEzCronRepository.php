@@ -6,13 +6,9 @@ use Cron\CronExpression;
 use Doctrine\ORM\EntityRepository;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use Smile\EzUICronBundle\Entity\SmileEzCron;
-use Symfony\Component\Translation\TranslatorInterface;
 
 class SmileEzCronRepository extends EntityRepository
 {
-    /** @var TranslatorInterface $translator */
-    private $translator;
-
     /**
      * List ez cron entries
      *
@@ -33,8 +29,7 @@ class SmileEzCronRepository extends EntityRepository
             case 'expression':
                 if (!CronExpression::isValidExpression($value)) {
                     throw new InvalidArgumentException(
-                        'expression',
-                        $this->translator->trans('cron.invalid.type', ['%type%' => $type], 'smileezcron')
+                        'expression', 'cron.invalid.type'
                     );
                 }
                 $cron->setExpression($value);
@@ -42,8 +37,7 @@ class SmileEzCronRepository extends EntityRepository
             case 'arguments':
                 if (preg_match_all('|[a-z0-9_\-]+:[a-z0-9_\-]+|', $value) === 0) {
                     throw new InvalidArgumentException(
-                        'arguments',
-                        $this->translator->trans('cron.invalid.type', ['%type%' => $type], 'smileezcron')
+                        'arguments', 'cron.invalid.type'
                     );
                 }
                 $cron->setArguments($value);
@@ -51,8 +45,7 @@ class SmileEzCronRepository extends EntityRepository
             case 'priority':
                 if (!ctype_digit($value)) {
                     throw new InvalidArgumentException(
-                        'priority',
-                        $this->translator->trans('cron.invalid.type', ['%type%' => $type], 'smileezcron')
+                        'priority', 'cron.invalid.type'
                     );
                 }
                 $cron->setPriority((int)$value);
@@ -61,10 +54,5 @@ class SmileEzCronRepository extends EntityRepository
 
         $this->getEntityManager()->persist($cron);
         $this->getEntityManager()->flush();
-    }
-
-    public function setTranslator(TranslatorInterface $translator)
-    {
-        $this->translator = $translator;
     }
 }
