@@ -13,11 +13,16 @@ YUI.add('smileez-uicron-view', function (Y) {
             },
             '.smile-cron-save': {
                 'tap': '_saveEditField'
+            },
+            '.smile-cron-edit-boolean': {
+                'tap': '_toogleBooleanField'
             }
         },
 
         initializer: function () {
             this.containerTemplate = '<div class="ez-view-smileezuicronview"/>';
+            Y.eZ.trans('smileezuicron.tab.status.title', {}, 'smileezcron');
+            Y.eZ.trans('smileezuicron.tab.crons.title', {}, 'smileezcron');
         },
 
         _editField: function (e) {
@@ -90,7 +95,6 @@ YUI.add('smileez-uicron-view', function (Y) {
                 cronValueNode.removeClass('editView');
                 cronTdNode.removeChild(cronContainerNode);
 
-
                 onEdit = false;
             }
         },
@@ -112,7 +116,8 @@ YUI.add('smileez-uicron-view', function (Y) {
                 data: data,
                 on: {
                     success: function (tId, response) {
-                        cronValueNode.setHTML(value);
+                        if (cronValueNode)
+                            cronValueNode.setHTML(value);
                         notificationText = response.statusText;
                         notificationIdentifier = notificationIdentifier + '-ok';
                         notificationState = 'done';
@@ -139,5 +144,23 @@ YUI.add('smileez-uicron-view', function (Y) {
                 }
             });
         },
+
+        _toogleBooleanField: function (e) {
+            e.preventDefault();
+            var type = e.target.getAttribute('data-type'),
+                alias = e.target.getAttribute('data-alias'),
+                container = this.get('container'),
+                cronSpan = container.one('#' + type + '-' + alias);
+
+            if (cronSpan.hasClass('ez-contenttype-icon')) {
+                cronSpan.removeClass('ez-contenttype-icon');
+                cronSpan.removeClass('ez-contenttype-icon-chekmark');
+                this._saveCronData(0, 'enabled', alias, false);
+            } else {
+                cronSpan.addClass('ez-contenttype-icon');
+                cronSpan.addClass('ez-contenttype-icon-chekmark');
+                this._saveCronData(1, 'enabled', alias, false);
+            }
+        }
     });
 });

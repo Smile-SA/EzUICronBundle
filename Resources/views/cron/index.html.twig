@@ -21,7 +21,11 @@
 
         <ul class="ez-tabs-list">
             {% for tab_item in tab_items %}
-                <li class="ez-tabs-label{% if tab_item == tab_item_selected %} is-tab-selected{% endif %}"><a href="#ez-tabs-{{ tab_item }}">{{ tab_item|trans }}</a></li>
+                <li class="ez-tabs-label{% if tab_item == tab_item_selected %} is-tab-selected{% endif %}">
+                    <a href="#ez-tabs-{{ tab_item }}">
+                        {{ ('smileezuicron.tab.' ~ tab_item ~ '.title')|trans }}
+                    </a>
+                </li>
             {% endfor %}
         </ul>
 

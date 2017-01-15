@@ -50,6 +50,14 @@ class SmileEzCronRepository extends EntityRepository
                 }
                 $cron->setPriority((int)$value);
                 break;
+            case 'enabled':
+                if (!ctype_digit($value) && ((int)$value != 1 || (int)$value != 0)) {
+                    throw new InvalidArgumentException(
+                        'enabled', 'cron.invalid.type'
+                    );
+                }
+                $cron->setEnabled((int)$value);
+                break;
         }
 
         $this->getEntityManager()->persist($cron);

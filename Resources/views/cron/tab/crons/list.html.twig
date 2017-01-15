@@ -23,8 +23,8 @@
                     {{ data.priority }}
                 </span>
             </td>
-            <td class="ez-block-cell-center smile-cron-edit-boolean">
-                <span class="{% if data.enabled %}ez-contenttype-icon ez-contenttype-icon-chekmark{% endif %}"></span>
+            <td class="ez-block-cell-center smile-cron-edit-boolean" data-type="enabled" data-alias="{{ alias }}">
+                <span id="enabled-{{ alias }}" class="{% if data.enabled %}ez-contenttype-icon ez-contenttype-icon-chekmark{% endif %}" data-type="enabled" data-alias="{{ alias }}"></span>
             </td>
         </tr>
     {% endfor %}
