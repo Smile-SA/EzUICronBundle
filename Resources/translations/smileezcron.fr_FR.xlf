@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-01-09T08:37:57Z" source-language="en" target-language="fr_FR" datatype="plaintext" original="not.available">
+  <file date="2017-01-15T19:42:59Z" source-language="en" target-language="fr_FR" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -13,17 +13,23 @@
         <jms:reference-file line="15">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/index.html.twig</jms:reference-file>
         <jms:reference-file line="8">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/index.html.twig</jms:reference-file>
       </trans-unit>
-      <trans-unit id="009b7d592029e217d24881f4961ea7b4b377999b" resname="smileezuicron.button.cancel">
-        <source>smileezuicron.button.cancel</source>
-        <target state="new">Annuler</target>
-        <note>key: smileezuicron.button.cancel</note>
-        <jms:reference-file>./src/Smile/EzUICronBundle/Resources/public/js/views/smileez-uicron-view.js</jms:reference-file>
+      <trans-unit id="fc28844e71e4becb0355e6a25c9049667cfd6cf9" resname="cron alias not found">
+        <source>cron alias not found</source>
+        <target state="new">Alias de tâche inconnu</target>
+        <note>key: cron alias not found</note>
+        <jms:reference-file line="63">/../../../../.././src/Smile/EzUICronBundle/Service/EzCronService.php</jms:reference-file>
       </trans-unit>
-      <trans-unit id="4c46f3e5104372d8135671b6260a9bfe410f496f" resname="smileezuicron.button.save">
-        <source>smileezuicron.button.save</source>
-        <target state="new">Enregistrer</target>
-        <note>key: smileezuicron.button.save</note>
-        <jms:reference-file>./src/Smile/EzUICronBundle/Resources/public/js/views/smileez-uicron-view.js</jms:reference-file>
+      <trans-unit id="8bf796bf2622f429460bbb54109ea7dbbec58644" resname="cron.edit.done">
+        <source>cron.edit.done</source>
+        <target state="new">Edition de la tâche effectuée</target>
+        <note>key: cron.edit.done</note>
+        <jms:reference-file line="55">/../../../../.././src/Smile/EzUICronBundle/Controller/CronsController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="98a59980cf121f406885c6e30406808ea48341f2" resname="cron.invalid.type">
+        <source>cron.invalid.type</source>
+        <target state="new">Propriété invalide de la tâche</target>
+        <note>key: cron.invalid.type</note>
+        <jms:reference-file line="79">/../../../../.././src/Smile/EzUICronBundle/Service/EzCronService.php</jms:reference-file>
       </trans-unit>
     </body>
   </file>
