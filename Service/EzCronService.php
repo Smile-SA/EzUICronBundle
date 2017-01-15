@@ -12,6 +12,7 @@ use Smile\EzUICronBundle\Entity\SmileEzCron;
 use Smile\EzUICronBundle\Repository\SmileEzCronRepository;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class EzCronService
 {
@@ -24,12 +25,20 @@ class EzCronService
     /** @var SmileEzCronRepository $repository */
     protected $repository;
 
-    public function __construct(CronService $cronService, CronHandler $cronHandler, Registry $doctrineRegistry)
-    {
+    /** @var TranslatorInterface $translator */
+    protected $translator;
+
+    public function __construct(
+        CronService $cronService,
+        CronHandler $cronHandler,
+        Registry $doctrineRegistry,
+        TranslatorInterface $translator
+    ) {
         $this->cronService = $cronService;
         $this->cronHandler = $cronHandler;
         $entityManager = $doctrineRegistry->getManager();
         $this->repository = $entityManager->getRepository('SmileEzUICronBundle:SmileEzCron');
+        $this->translator = $translator;
     }
 
     /**
@@ -49,7 +58,10 @@ class EzCronService
         if (!$cron) {
             $crons = $this->getCrons();
             if (!isset($crons[$alias]))
-                throw new NotFoundException('cron alias not found', 'smileezcron');
+                throw new NotFoundException(
+                    $this->translator->trans('cron alias not found', [], 'smileezcron'),
+                    'smileezcron'
+                );
 
             $cron = new SmileEzCron();
             $cron->setAlias($crons[$alias]['alias']);

@@ -2,6 +2,7 @@ parameters:
     smile.cron.bar.class: Smile\EzUICronBundle\Command\BarCommand
     smile.cron.foo.class: Smile\EzUICronBundle\Command\FooCommand
 
+    smile.ez.cron.entity.repository.class: Smile\EzUICronBundle\Repository\SmileEzCronRepository
     smile.ez.cron.service.class: Smile\EzUICronBundle\Service\EzCronService
 
     smile.cron.controller.cron.class: Smile\EzUICronBundle\Controller\CronController
@@ -20,6 +21,14 @@ services:
         tags:
             - { name: smile.cron, alias: foo, priority: 200, arguments: 'foo:fooarg' }
 
+    smile.ez.cron.entity.repository:
+        class: %smile.ez.cron.entity.repository.class%
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @serializer.mapping.class_metadata_factory
+        calls:
+            - [setTranslator, [@translator]]
+
     # services
     smile.ez.cron.service:
         class: %smile.ez.cron.service.class%
@@ -27,6 +36,7 @@ services:
             - @smile.cron.service
             - @smile.cron.handler
             - @doctrine
+            - @translator
 
     # controllers
     smile.cron.controller.cron:
@@ -45,4 +55,5 @@ services:
         class: %smile.cron.controller.cron.crons.class%
         arguments:
             - @smile.ez.cron.service
+            - @translator
         parent: ezsystems.platformui.controller.base

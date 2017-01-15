@@ -9,15 +9,22 @@ use EzSystems\PlatformUIBundle\Controller\Controller;
 use Smile\EzUICronBundle\Service\EzCronService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class CronsController extends Controller
 {
     /** @var EzCronService $cronService cron service */
     protected $cronService;
 
-    public function __construct(EzCronService $cronService)
-    {
+    /** @var TranslatorInterface $translator */
+    protected $translator;
+
+    public function __construct(
+        EzCronService $cronService,
+        TranslatorInterface $translator
+    ) {
         $this->cronService = $cronService;
+        $this->translator = $translator;
     }
 
     public function performAccessChecks()
@@ -43,7 +50,10 @@ class CronsController extends Controller
 
         try {
             $this->cronService->updateCron($alias, $type, $value);
-            $response->setStatusCode(200);
+            $response->setStatusCode(
+                200,
+                $this->translator->trans('cron.edit.done', ['%type%' => $type, '%alias%' => $alias], 'smileezcron')
+            );
         } catch (NotFoundException $e) {
             $response->setStatusCode(500, $e->getMessage());
         } catch (InvalidArgumentException $e) {

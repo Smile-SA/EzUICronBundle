@@ -6,9 +6,13 @@ use Cron\CronExpression;
 use Doctrine\ORM\EntityRepository;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use Smile\EzUICronBundle\Entity\SmileEzCron;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class SmileEzCronRepository extends EntityRepository
 {
+    /** @var TranslatorInterface $translator */
+    private $translator;
+
     /**
      * List ez cron entries
      *
@@ -28,19 +32,28 @@ class SmileEzCronRepository extends EntityRepository
         switch ($type) {
             case 'expression':
                 if (!CronExpression::isValidExpression($value)) {
-                    throw new InvalidArgumentException('expression', 'Invalid cron expression');
+                    throw new InvalidArgumentException(
+                        'expression',
+                        $this->translator->trans('cron.invalid.type', ['%type%' => $type], 'smileezcron')
+                    );
                 }
                 $cron->setExpression($value);
                 break;
             case 'arguments':
                 if (preg_match_all('|[a-z0-9_\-]+:[a-z0-9_\-]+|', $value) === 0) {
-                    throw new InvalidArgumentException('priority', 'Invalid cron arguments');
+                    throw new InvalidArgumentException(
+                        'arguments',
+                        $this->translator->trans('cron.invalid.type', ['%type%' => $type], 'smileezcron')
+                    );
                 }
                 $cron->setArguments($value);
                 break;
             case 'priority':
                 if (!ctype_digit($value)) {
-                    throw new InvalidArgumentException('priority', 'Invalid cron priority');
+                    throw new InvalidArgumentException(
+                        'priority',
+                        $this->translator->trans('cron.invalid.type', ['%type%' => $type], 'smileezcron')
+                    );
                 }
                 $cron->setPriority((int)$value);
                 break;
@@ -48,5 +61,10 @@ class SmileEzCronRepository extends EntityRepository
 
         $this->getEntityManager()->persist($cron);
         $this->getEntityManager()->flush();
+    }
+
+    public function setTranslator(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
     }
 }
