@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2017-01-15T19:42:39Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+  <file date="2017-01-16T07:58:21Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
@@ -14,22 +14,46 @@
         <jms:reference-file line="8">/../../../../.././src/Smile/EzUICronBundle/Resources/views/cron/index.html.twig</jms:reference-file>
       </trans-unit>
       <trans-unit id="fc28844e71e4becb0355e6a25c9049667cfd6cf9" resname="cron alias not found">
-        <source>cron alias not found</source>
-        <target state="new">Cron alias not found</target>
+        <source>Cron alias not found</source>
+        <target>Cron alias not found</target>
         <note>key: cron alias not found</note>
         <jms:reference-file line="63">/../../../../.././src/Smile/EzUICronBundle/Service/EzCronService.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="8bf796bf2622f429460bbb54109ea7dbbec58644" resname="cron.edit.done">
-        <source>cron.edit.done</source>
-        <target state="new">Cron edit done</target>
+        <source>Cron edit done</source>
+        <target>Cron edit done</target>
         <note>key: cron.edit.done</note>
         <jms:reference-file line="55">/../../../../.././src/Smile/EzUICronBundle/Controller/CronsController.php</jms:reference-file>
       </trans-unit>
       <trans-unit id="98a59980cf121f406885c6e30406808ea48341f2" resname="cron.invalid.type">
-        <source>cron.invalid.type</source>
-        <target state="new">Invalid cron property</target>
+        <source>Invalid cron property</source>
+        <target>Invalid cron property</target>
         <note>key: cron.invalid.type</note>
         <jms:reference-file line="79">/../../../../.././src/Smile/EzUICronBundle/Service/EzCronService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="009b7d592029e217d24881f4961ea7b4b377999b" resname="smileezuicron.button.cancel">
+        <source>smileezuicron.button.cancel</source>
+        <target state="new">Cancel</target>
+        <note>key: smileezuicron.button.cancel</note>
+        <jms:reference-file>./src/Smile/EzUICronBundle/Resources/public/js/views/smileez-uicron-view.js</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4c46f3e5104372d8135671b6260a9bfe410f496f" resname="smileezuicron.button.save">
+        <source>smileezuicron.button.save</source>
+        <target state="new">Save</target>
+        <note>key: smileezuicron.button.save</note>
+        <jms:reference-file>./src/Smile/EzUICronBundle/Resources/public/js/views/smileez-uicron-view.js</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3676c49e028f8cdeb0f0786919bc7885764bce44" resname="smileezuicron.tab.crons.title">
+        <source>smileezuicron.tab.crons.title</source>
+        <target state="new">Crons dashboard</target>
+        <note>key: smileezuicron.tab.crons.title</note>
+        <jms:reference-file>./src/Smile/EzUICronBundle/Resources/public/js/views/smileez-uicron-view.js</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cf0cc1c522683f66ec505155616a02720b88cc45" resname="smileezuicron.tab.status.title">
+        <source>smileezuicron.tab.status.title</source>
+        <target state="new">Crons status</target>
+        <note>key: smileezuicron.tab.status.title</note>
+        <jms:reference-file>./src/Smile/EzUICronBundle/Resources/public/js/views/smileez-uicron-view.js</jms:reference-file>
       </trans-unit>
     </body>
   </file>
