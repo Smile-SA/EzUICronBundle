@@ -27,12 +27,20 @@ class StatusController extends Controller
         $this->cronService = $cronService;
     }
 
+    /**
+     * Perform access control to cron policy
+     */
     public function performAccessChecks()
     {
         parent::performAccessChecks();
         $this->denyAccessUnlessGranted(new Attribute('uicron', 'cron'));
     }
 
+    /**
+     * List crons status
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function listAction()
     {
         $crons = $this->cronService->listCronsStatus();

@@ -11,6 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Translation\TranslatorInterface;
 
+/**
+ * Class CronsController
+ *
+ * @package Smile\EzUICronBundle\Controller
+ */
 class CronsController extends Controller
 {
     /** @var EzCronService $cronService cron service */
@@ -19,6 +24,12 @@ class CronsController extends Controller
     /** @var TranslatorInterface $translator */
     protected $translator;
 
+    /**
+     * CronsController constructor.
+     *
+     * @param EzCronService       $cronService
+     * @param TranslatorInterface $translator
+     */
     public function __construct(
         EzCronService $cronService,
         TranslatorInterface $translator
@@ -27,12 +38,20 @@ class CronsController extends Controller
         $this->translator = $translator;
     }
 
+    /**
+     * Perform access control to cron policy
+     */
     public function performAccessChecks()
     {
         parent::performAccessChecks();
         $this->denyAccessUnlessGranted(new Attribute('uicron', 'cron'));
     }
 
+    /**
+     * List crons definition
+     *
+     * @return Response
+     */
     public function listAction()
     {
         $crons = $this->cronService->getCrons();
@@ -42,6 +61,14 @@ class CronsController extends Controller
         ]);
     }
 
+    /**
+     * Edition cron definition
+     *
+     * @param Request $request
+     * @param string  $type cron property identifier
+     * @param string  $alias cron alias identifier
+     * @return Response
+     */
     public function editAction(Request $request, $type, $alias)
     {
         $value = $request->get('value');

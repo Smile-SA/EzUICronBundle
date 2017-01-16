@@ -7,6 +7,11 @@ use Doctrine\ORM\EntityRepository;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use Smile\EzUICronBundle\Entity\SmileEzCron;
 
+/**
+ * Class SmileEzCronRepository
+ *
+ * @package Smile\EzUICronBundle\Repository
+ */
 class SmileEzCronRepository extends EntityRepository
 {
     /**
@@ -23,6 +28,14 @@ class SmileEzCronRepository extends EntityRepository
         return $query->getResult();
     }
 
+    /**
+     * Edit cron definition
+     *
+     * @param SmileEzCron $cron cron object
+     * @param string      $type cron property identifier
+     * @param string      $value cron property value
+     * @throws InvalidArgumentException
+     */
     public function updateCron(SmileEzCron $cron, $type, $value)
     {
         switch ($type) {
