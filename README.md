@@ -4,8 +4,6 @@
 
 eZ Platform Cron Scheduler Bundle
 
-> This bundle is currently in dev
-
 ## Description
 
 This bundle offer a command that you should use as a cronjob :
