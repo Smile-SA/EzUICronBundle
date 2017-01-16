@@ -148,21 +148,35 @@ class EzCronService
             if (isset($eZCrons[$cron->getAlias()])) {
                 $cronAlias[$cron->getAlias()] = array(
                     'cron' => $cron,
-                    'arguments' => $eZCrons[$cron->getAlias()]['arguments']
+                    'arguments' => $eZCrons[$cron->getAlias()]['arguments'],
+                    'priority' => $eZCrons[$cron->getAlias()]['priority']
                 );
             }
         }
 
+        $cronsToRun = array();
+
         if ($smileCrons) {
             foreach ($smileCrons as $smileCron) {
                 if (isset($cronAlias[$smileCron->getAlias()])) {
-                    $this->cronService->run($smileCron);
-                    /** @var CronInterface $cron */
-                    $cron = $cronAlias[$smileCron->getAlias()]['cron'];
-                    $cron->addArguments($cronAlias[$smileCron->getAlias()]['arguments']);
-                    $status = $cron->run($input, $output);
-                    $this->cronService->end($smileCron, $status);
+                    $priority = $cronAlias[$smileCron->getAlias()]['priority'];
+                    if (!isset($cronsToRun[$priority]))
+                        $cronsToRun[$priority] = array();
+                    $cronsToRun[$priority][] = $smileCron;
                 }
+            }
+        }
+
+        ksort($cronsToRun);
+
+        foreach ($cronsToRun as $priority => $crons) {
+            foreach ($crons as $smileCron) {
+                $this->cronService->run($smileCron);
+                /** @var CronInterface $cron */
+                $cron = $cronAlias[$smileCron->getAlias()]['cron'];
+                $cron->addArguments($cronAlias[$smileCron->getAlias()]['arguments']);
+                $status = $cron->run($input, $output);
+                $this->cronService->end($smileCron, $status);
             }
         }
     }
