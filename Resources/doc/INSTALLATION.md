@@ -9,6 +9,15 @@ your symfony project:
 composer require smile/ez-uicron-bundle
 ```
 
+## Add routing
+
+Add to your global configuration app/config/routing.yml
+
+```yaml
+smileezcron_platform:
+    resource: '@SmileEzUICronBundle/Resources/config/routing.yml'
+```
+
 ## Enable the bundle
 
 To start using the bundle, register the bundle in your application's kernel class:
