@@ -11,6 +11,7 @@ use Smile\CronBundle\Entity\SmileCron;
 use Smile\CronBundle\Service\CronService;
 use Smile\EzUICronBundle\Entity\SmileEzCron;
 use Smile\EzUICronBundle\Repository\SmileEzCronRepository;
+use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Translation\TranslatorInterface;
@@ -131,7 +132,7 @@ class EzCronService
         $this->cronService->addQueued($alias);
     }
 
-    public function runQueued(InputInterface $input, OutputInterface $output)
+    public function runQueued(InputInterface $input, OutputInterface $output, Application $application)
     {
         /** @var SmileCron[] $smileCrons */
         $smileCrons = $this->cronService->listQueued();
@@ -175,6 +176,7 @@ class EzCronService
                 /** @var CronInterface $cron */
                 $cron = $cronAlias[$smileCron->getAlias()]['cron'];
                 $cron->addArguments($cronAlias[$smileCron->getAlias()]['arguments']);
+                $cron->initApplication($application);
                 $status = $cron->run($input, $output);
                 $this->cronService->end($smileCron, $status);
             }

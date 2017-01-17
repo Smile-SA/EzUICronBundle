@@ -46,6 +46,6 @@ class CronCommand extends ContainerAwareCommand
             }
         }
 
-        $cronService->runQueued($input, $output);
+        $cronService->runQueued($input, $output, $this->getApplication());
     }
 }
