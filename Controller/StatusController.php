@@ -51,7 +51,7 @@ class StatusController extends Controller
                 'alias' => $cron->getAlias(),
                 'queued' => $cron instanceof SmileCron ? $cron->getQueued()->format('d-m-Y H:i') : false,
                 'started' => $cron instanceof SmileCron ? $cron->getStarted()->format('d-m-Y H:i') : false,
-                'ended' => $cron instanceof SmileCron ? $cron->getEnded()->format('d-m-Y H:i') : false,
+                'ended' => $cron instanceof SmileCron ? ($cron->getEnded() ? $cron->getEnded()->format('d-m-Y H:i') : false) : false,
                 'status' => $cron instanceof SmileCron ? $cron->getStatus() : false
             );
         }
