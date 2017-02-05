@@ -2,7 +2,7 @@
   "name": "smile/ez-uicron-bundle",
   "type": "ezplatform-bundle",
   "description": "Cron scheduler for eZ Platform 6.x",
-  "license": ["MIT"],
+  "license": ["GPL-3.0"],
   "authors": [
     {
       "name": "Smile SA",
@@ -12,7 +12,8 @@
   "require": {
     "php": "~5.6|~7.0",
     "doctrine/orm": "^2.4",
-    "smile/cron-bundle": "^1.0"
+    "smile/cron-bundle": "^1.0",
+    "ezsystems/ezpublish-kernel": "~6.7"
   },
   "autoload": {
     "psr-0": { "Smile\\EzUICronBundle": "" }
