@@ -2,17 +2,19 @@
 
 namespace Smile\EzUICronBundle\Controller;
 
-use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
-use EzSystems\PlatformUIBundle\Controller\Controller;
+use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute as AuthorizationAttribute;
+use eZ\Publish\Core\MVC\Symfony\Controller\Controller;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class AbstractCronController extends Controller
 {
     /**
      * Perform access check for cron policy
      */
-    public function performAccessChecks()
+    protected function performAccessChecks()
     {
-        parent::performAccessChecks();
-        $this->denyAccessUnlessGranted(new Attribute('uicron', 'cron'));
+        if (!$this->isGranted(new AuthorizationAttribute('uicron', 'cron'))) {
+            throw new AccessDeniedException();
+        }
     }
 }

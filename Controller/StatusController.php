@@ -32,6 +32,8 @@ class StatusController extends AbstractCronController
      */
     public function listAction()
     {
+        $this->performAccessChecks();
+
         $crons = $this->cronService->listCronsStatus();
         $cronRows = array();
 

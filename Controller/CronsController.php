@@ -43,6 +43,8 @@ class CronsController extends AbstractCronController
      */
     public function listAction()
     {
+        $this->performAccessChecks();
+
         $crons = $this->cronService->getCrons();
 
         return $this->render('SmileEzUICronBundle:cron:tab/crons/list.html.twig', [
@@ -60,6 +62,8 @@ class CronsController extends AbstractCronController
      */
     public function editAction(Request $request, $type, $alias)
     {
+        $this->performAccessChecks();
+
         $value = $request->get('value');
 
         $response = new Response();

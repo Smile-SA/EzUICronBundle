@@ -34,17 +34,17 @@ services:
         class: %smile.cron.controller.cron.class%
         arguments:
             - %smile.cron.tabs%
-        parent: ezsystems.platformui.controller.base
+        parent: ezpublish.controller.base
 
     smile.cron.controller.cron.status:
         class: %smile.cron.controller.cron.status.class%
         arguments:
             - @smile.ez.cron.service
-        parent: ezsystems.platformui.controller.base
+        parent: ezpublish.controller.base
 
     smile.cron.controller.cron.crons:
         class: %smile.cron.controller.cron.crons.class%
         arguments:
             - @smile.ez.cron.service
             - @translator
-        parent: ezsystems.platformui.controller.base
+        parent: ezpublish.controller.base

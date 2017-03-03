@@ -30,6 +30,8 @@ class CronController extends AbstractCronController
      */
     public function cronAction($tabItem)
     {
+        $this->performAccessChecks();
+
         return $this->render('SmileEzUICronBundle:cron:index.html.twig', [
             'tab_items' => $this->tabItems,
             'tab_item_selected' => $tabItem,
@@ -46,6 +48,8 @@ class CronController extends AbstractCronController
      */
     public function tabAction($tabItem, $paramsTwig = array(), $hasErrors = false)
     {
+        $this->performAccessChecks();
+
         $tabItemMethod = 'tabItem' . ucfirst($tabItem);
         $params = $this->{$tabItemMethod}($paramsTwig);
 
