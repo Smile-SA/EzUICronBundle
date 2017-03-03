@@ -2,15 +2,12 @@
 
 namespace Smile\EzUICronBundle\Controller;
 
-use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
-use EzSystems\PlatformUIBundle\Controller\Controller;
-
 /**
  * Class CronController
  *
  * @package Smile\EzUICronBundle\Controller
  */
-class CronController extends Controller
+class CronController extends AbstractCronController
 {
     /** @var string[] tab item names */
     protected $tabItems;
@@ -23,15 +20,6 @@ class CronController extends Controller
     public function __construct($tabItems)
     {
         $this->tabItems = $tabItems;
-    }
-
-    /**
-     * Perform access check for cron policy
-     */
-    public function performAccessChecks()
-    {
-        parent::performAccessChecks();
-        $this->denyAccessUnlessGranted(new Attribute('uicron', 'cron'));
     }
 
     /**

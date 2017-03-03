@@ -35,6 +35,13 @@ public function registerBundles()
 }
 ```
 
+### Manage assets
+
+```
+php app/console assets:install --symlink web
+php app/console assetic:dump
+```
+
 ## Add doctrine ORM support
 
 in yout ezplatform.yml, add

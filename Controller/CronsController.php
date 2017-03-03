@@ -4,8 +4,6 @@ namespace Smile\EzUICronBundle\Controller;
 
 use eZ\Publish\API\Repository\Exceptions\InvalidArgumentException;
 use eZ\Publish\Core\Base\Exceptions\NotFoundException;
-use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
-use EzSystems\PlatformUIBundle\Controller\Controller;
 use Smile\EzUICronBundle\Service\EzCronService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +14,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  *
  * @package Smile\EzUICronBundle\Controller
  */
-class CronsController extends Controller
+class CronsController extends AbstractCronController
 {
     /** @var EzCronService $cronService cron service */
     protected $cronService;
@@ -36,15 +34,6 @@ class CronsController extends Controller
     ) {
         $this->cronService = $cronService;
         $this->translator = $translator;
-    }
-
-    /**
-     * Perform access control to cron policy
-     */
-    public function performAccessChecks()
-    {
-        parent::performAccessChecks();
-        $this->denyAccessUnlessGranted(new Attribute('uicron', 'cron'));
     }
 
     /**
