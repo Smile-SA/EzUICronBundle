@@ -11,40 +11,40 @@ parameters:
 
 services:
     smile.cron.bar:
-        class: %smile.cron.bar.class%
+        class: "%smile.cron.bar.class%"
         tags:
             - { name: smile.cron, alias: bar, priority: 100 }
 
     smileez.cron.foo:
-        class: %smile.cron.foo.class%
+        class: "%smile.cron.foo.class%"
         tags:
             - { name: smile.cron, alias: foo, priority: 200, arguments: 'foo:fooarg' }
 
     # services
     smile.ez.cron.service:
-        class: %smile.ez.cron.service.class%
+        class: "%smile.ez.cron.service.class%"
         arguments:
-            - @smile.cron.service
-            - @smile.cron.handler
-            - @doctrine
-            - @translator
+            - "@smile.cron.service"
+            - "@smile.cron.handler"
+            - "@doctrine"
+            - "@translator"
 
     # controllers
     smile.cron.controller.cron:
-        class: %smile.cron.controller.cron.class%
+        class: "%smile.cron.controller.cron.class%"
         arguments:
-            - %smile.cron.tabs%
+            - "%smile.cron.tabs%"
         parent: ezpublish.controller.base
 
     smile.cron.controller.cron.status:
-        class: %smile.cron.controller.cron.status.class%
+        class: "%smile.cron.controller.cron.status.class%"
         arguments:
-            - @smile.ez.cron.service
+            - "@smile.ez.cron.service"
         parent: ezpublish.controller.base
 
     smile.cron.controller.cron.crons:
-        class: %smile.cron.controller.cron.crons.class%
+        class: "%smile.cron.controller.cron.crons.class%"
         arguments:
-            - @smile.ez.cron.service
-            - @translator
+            - "@smile.ez.cron.service"
+            - "@translator"
         parent: ezpublish.controller.base
